@@ -1,0 +1,89 @@
+Screen {
+    background: #0b1f1c;
+}
+
+.container {
+    background: #0f2e29;
+    align: center middle;
+    height: 100%;
+    border: none;
+}
+
+.block {
+    background: #123a34;
+    align: center middle;
+    height: auto;
+    width: 60%;
+    min-width: 50;
+    border: round #3aa89a;
+    border-title-color: #b9c4c9;
+    padding: 2 4;
+}
+
+.main_title {
+    color: #e6f2f0;
+    text-style: bold italic;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2;
+}
+
+.buttons {
+    width: 100%;
+    height: auto;
+    align: center middle;
+}
+
+.button {
+    width: 40%;
+    min-width: 16;
+    margin: 1 2;
+    background: #1c554c;
+    color: #e6f2f0;
+    border: tall #3aa89a;
+    text-style: bold;
+}
+
+.button:hover {
+    background: #257265;
+    border: tall #5fd9c7;
+    color: #ffffff;
+}
+
+.button:focus {
+    background: #2a8577;
+    border: tall #7ff0dc;
+    text-style: bold underline;
+}
+
+.button.-active {
+    background: #0f4a41;
+}
+
+.links {
+    width: 100%;
+    height: auto;
+    align: center middle;
+    margin-top: 2;
+}
+
+.links Link {
+    color: #5fd9c7;
+    margin: 0 2;
+    text-style: underline;
+}
+
+.links Link:hover {
+    color: #ffffff;
+    text-style: bold underline;
+}
+
+Header {
+    background: #0f2e29;
+    color: #e6f2f0;
+}
+
+Footer {
+    background: #0f2e29;
+    color: #b9c4c9;
+}

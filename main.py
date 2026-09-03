@@ -1,22 +1,63 @@
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+from get_localizations import out_en, out_ru
 from textual.app import App, ComposeResult
+from textual.containers import Container, Horizontal
 from textual.widgets import Header, Footer, Static, Button, Link
 
-class StarterForTrusttunnel (App):
+l_en = out_en()
+l_ru = out_ru()
+
+
+class StarterForTrusttunnel(App):
+    CSS_PATH = "style.tcss"
+
     def compose(self) -> ComposeResult:
         yield Header()
+        yield Container(
+            Container(
+                Static(l_en["MainTitle"], classes="main_title"),
+                Horizontal(
+                    Button(l_en["ButtonForStart"], id="start_btn", classes="button"),
+                    Button(l_en["ButtonForOpenFolder"], id="open_folder_btn", classes="button"),
+                    classes="buttons",
+                ),
+                Horizontal(
+                    Link("Gitea", url="https://gitea.st1llb0rn.ru.net/st1llb0rn/StarterForTrusttunnel"),
+                    Link("GitHub", url="https://github.com/st1llb0rnn/StarterForTrusttunnel"),
+                    classes="links",
+                ),
+                classes="block",
+            ),
+            classes="container",
+        )
         yield Footer()
 
-        self.main_title = Static("Trusttunnel")
-        self.start_button = Button("Start")
-        self.open_tt_folder = Button("Open Folder")
-        self.link_for_gitea = Link(text="Gitea", url="https://gitea.st1llb0rn.ru.net/st1llb0rn/StarterForTrusttunnel")
-        self.link_for_github = Link(text="GitHub", url="https://github.com/st1llb0rnn/StarterForTrusttunnel")
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        if event.button.id == "start_btn":
+            self.start_tunnel()
+        elif event.button.id == "open_folder_btn":
+            self.open_tt_folder()
 
-        yield self.main_title
-        yield self.start_button
-        yield self.open_tt_folder
+    def start_tunnel(self) -> None:
+        # сюда логику запуска трастаннеля, например:
+        # subprocess.Popen(["./trusttunnel"], cwd=self.tunnel_dir)
+        self.notify("Запуск туннеля...")
 
-    # def on_mount(self) -> None:
+    def open_tt_folder(self) -> None:
+        folder = Path(__file__).parent  # поменяй на нужную папку с trusttunnel
+        try:
+            if sys.platform == "win32":
+                os.startfile(folder)
+            elif sys.platform == "darwin":
+                subprocess.Popen(["open", folder])
+            else:
+                subprocess.Popen(["xdg-open", folder])
+        except Exception as e:
+            self.notify(f"Не удалось открыть папку: {e}", severity="error")
 
 
 if __name__ == "__main__":
