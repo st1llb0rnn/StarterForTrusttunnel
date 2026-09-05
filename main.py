@@ -1,12 +1,15 @@
 import os
+from pydoc import classname
 import subprocess
 import sys
 from pathlib import Path
 
 from get_localizations import out_en, out_ru
+
 from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal
-from textual.widgets import Header, Footer, Static, Button, Link
+from textual.widgets import Header, Footer, Static, Button, Link, Collapsible
+from pyfiglet import figlet_format
 
 l_en = out_en()
 l_ru = out_ru()
@@ -19,12 +22,16 @@ class StarterForTrusttunnel(App):
         yield Header()
         yield Container(
             Container(
-                Static(l_en["MainTitle"], classes="main_title"),
+                Static(figlet_format(text=l_en["MainTitle"], font="rectangles"), classes="main_title"),
                 Horizontal(
                     Button(l_en["ButtonForStart"], id="start_btn", classes="button"),
                     Button(l_en["ButtonForOpenFolder"], id="open_folder_btn", classes="button"),
                     classes="buttons",
                 ),
+                classes="block",
+            ),
+            Container(
+                Collapsible(collapsed=True, title="Settings"),
                 Horizontal(
                     Link("Gitea", url="https://gitea.st1llb0rn.ru.net/st1llb0rn/StarterForTrusttunnel"),
                     Link("GitHub", url="https://github.com/st1llb0rnn/StarterForTrusttunnel"),

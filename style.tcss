@@ -5,6 +5,7 @@ Screen {
 .container {
     background: #0f2e29;
     align: center middle;
+    width: 100%;
     height: 100%;
     border: none;
 }
@@ -17,7 +18,6 @@ Screen {
     min-width: 50;
     border: round #3aa89a;
     border-title-color: #b9c4c9;
-    padding: 2 4;
 }
 
 .main_title {
@@ -25,7 +25,6 @@ Screen {
     text-style: bold italic;
     text-align: center;
     width: 100%;
-    margin-bottom: 2;
 }
 
 .buttons {
@@ -37,7 +36,7 @@ Screen {
 .button {
     width: 40%;
     min-width: 16;
-    margin: 1 2;
+    margin: 0 2;
     background: #1c554c;
     color: #e6f2f0;
     border: tall #3aa89a;
@@ -64,7 +63,7 @@ Screen {
     width: 100%;
     height: auto;
     align: center middle;
-    margin-top: 2;
+    margin-top: 1;
 }
 
 .links Link {
