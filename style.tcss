@@ -77,12 +77,46 @@ Screen {
     text-style: bold underline;
 }
 
+.collapsible {
+    color: #e6f2f0;
+    background: #0f4a41;
+    border: tall #3aa89a;
+    margin: 1 2;
+    padding: 0 1;
+}
+
+.inputs {
+    width: 100%;
+    height: auto;
+    align: center middle;
+}
+
+.input {
+    color: #e6f2f0;
+    background: #123a34;
+    border: tall #3aa89a;
+    margin: 0 1;
+    width: 50%;
+}
+
+.block_for_button_confirm {
+    width: 100%;
+    height: auto;
+    align: center middle;
+}
+
+.btn_confirm {
+    margin: 1 0;
+    align: center middle;
+    width: 40%;
+}
+
 Header {
-    background: #0f2e29;
+    background: #123a34;
     color: #e6f2f0;
 }
 
 Footer {
-    background: #0f2e29;
+    background: #123a34;
     color: #b9c4c9;
 }

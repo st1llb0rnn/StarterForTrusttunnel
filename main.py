@@ -1,5 +1,4 @@
 import os
-from pydoc import classname
 import subprocess
 import sys
 from pathlib import Path
@@ -8,15 +7,17 @@ from get_localizations import out_en, out_ru
 
 from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal
-from textual.widgets import Header, Footer, Static, Button, Link, Collapsible
+from textual.widgets import Header, Footer, Static, Button, Link, Collapsible, Input
 from pyfiglet import figlet_format
 
 l_en = out_en()
 l_ru = out_ru()
+l_ = None
 
 
 class StarterForTrusttunnel(App):
     CSS_PATH = "style.tcss"
+    BINDINGS = [("c", "choise_lang", "Choise language")]
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -31,9 +32,21 @@ class StarterForTrusttunnel(App):
                 classes="block",
             ),
             Container(
-                Collapsible(collapsed=True, title="Settings"),
+                Collapsible(
+                    Horizontal(
+                        Input(placeholder=l_en["PathToFolder"], id="path_to_folder", classes="input"),
+                        Input(placeholder=l_en["ConfigName"], id="config_name", classes="input"),
+                        classes="inputs"
+                    ),
+                    Container(
+                        Button(l_en["Confirm"], id="confirm_settings", classes="button btn_confirm"),
+                        classes="block_for_button_confirm"
+                    ),
+                    collapsed=True,
+                    title=l_en["SettingsTitle"],
+                    classes="collapsible"
+                ),
                 Horizontal(
-                    Link("Gitea", url="https://gitea.st1llb0rn.ru.net/st1llb0rn/StarterForTrusttunnel"),
                     Link("GitHub", url="https://github.com/st1llb0rnn/StarterForTrusttunnel"),
                     classes="links",
                 ),
@@ -52,7 +65,8 @@ class StarterForTrusttunnel(App):
     def start_tunnel(self) -> None:
         # сюда логику запуска трастаннеля, например:
         # subprocess.Popen(["./trusttunnel"], cwd=self.tunnel_dir)
-        self.notify("Запуск туннеля...")
+        self.notify(l_en["StartTunnel"])
+        self.notify(l_en["Connected"])
 
     def open_tt_folder(self) -> None:
         folder = Path(__file__).parent  # поменяй на нужную папку с trusttunnel
@@ -65,6 +79,12 @@ class StarterForTrusttunnel(App):
                 subprocess.Popen(["xdg-open", folder])
         except Exception as e:
             self.notify(f"Не удалось открыть папку: {e}", severity="error")
+
+    def confirm_settings(self) -> None:
+        pass
+
+    def action_choise_lang(self) -> None:
+       self.notify("action_choise_lang")
 
 
 if __name__ == "__main__":
