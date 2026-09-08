@@ -1,13 +1,12 @@
 {
-  "MainTitle": "Trusttunnel",
-  "ButtonForStart": "Connect",
-  "ButtonForOpenFolder": "Open Folder",
-
-  "SettingsTitle": "Settings",
-  "PathToFolder": "Path to folder with Trusttunnel",
-  "ConfigName": "Config name",
-  "Confirm": "Confirm",
-
-  "StartTunnel": "Start tunnel...",
-  "Connected": "Connected!"
+    "MainTitle": "Trusttunnel",
+    "ButtonForStart": "Connect",
+    "ButtonForOpenFolder": "Open Folder",
+    "SettingsTitle": "Settings",
+    "PathToFolder": "Path to folder with Trusttunnel",
+    "ConfigName": "Config name",
+    "Confirm": "Confirm",
+    "StartTunnel": "Start tunnel...",
+    "Connected": "Connected!",
+    "FailedToOpenFolder": "Failed to open folder:"
 }

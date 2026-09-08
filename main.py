@@ -4,20 +4,22 @@ import sys
 from pathlib import Path
 
 from get_localizations import out_en, out_ru
+from get_localizations import choise_language as cl
 
 from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal
 from textual.widgets import Header, Footer, Static, Button, Link, Collapsible, Input
 from pyfiglet import figlet_format
 
-l_en = out_en()
-l_ru = out_ru()
+# Variables for changing the language in the application
+l_en = out_en() # English
+l_ru = out_ru() # Russian
 l_ = None
 
 
 class StarterForTrusttunnel(App):
-    CSS_PATH = "style.tcss"
-    BINDINGS = [("c", "choise_lang", "Choise language")]
+    CSS_PATH = "style.tcss" # Styles for app
+    BINDINGS = [("c", "choise_lang", "Choise language")] # Binds for app
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -78,13 +80,14 @@ class StarterForTrusttunnel(App):
             else:
                 subprocess.Popen(["xdg-open", folder])
         except Exception as e:
-            self.notify(f"Не удалось открыть папку: {e}", severity="error")
+            self.notify(f'{l_en["FailedToOpenFolder"]} {e}', severity="error")
 
     def confirm_settings(self) -> None:
         pass
 
     def action_choise_lang(self) -> None:
-       self.notify("action_choise_lang")
+       if l_ == l_en():
+           self.notify("1")
 
 
 if __name__ == "__main__":

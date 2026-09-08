@@ -1,5 +1,12 @@
 {
-  "MainTitle": "Trusttunnel",
-  "ButtonForStart": "",
-  "ButtonForOpenFolder": ""
+    "MainTitle": "Trusttunnel",
+    "ButtonForStart": "Подключиться",
+    "ButtonForOpenFolder": "Открыть Папку",
+    "SettingsTitle": "Настройки",
+    "PathToFolder": "Путь к папке с Trusttunnel",
+    "ConfigName": "Название файла",
+    "Confirm": "Подтвердить",
+    "StartTunnel": "Прокладываем тунель...",
+    "Connected": "Подключено!",
+    "FailedToOpenFolder": "Ошибка открытия папки:"
 }
