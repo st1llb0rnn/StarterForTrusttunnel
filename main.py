@@ -50,6 +50,7 @@ class StarterForTrusttunnel(App):
                 ),
                 Horizontal(
                     Link("GitHub", url="https://github.com/st1llb0rnn/StarterForTrusttunnel"),
+                    Link("Forgejo", url="https://forgejo.st1llb0rn.ru.net/st1llb0rn/StarterForTrusttunnel"),
                     classes="links",
                 ),
                 classes="block",
