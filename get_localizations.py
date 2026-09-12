@@ -40,26 +40,40 @@ def out_ru():
         with open(path, "r", encoding="utf-8") as file:
             return json.load(file)
 
-def get_file_with_status():
-    path = "./localization/status.json" # Path of file
-    data = f_s_f() # Data for create file
-    # If not exists file, create status.json
-    if not os.path.exists(path):
-        create_file = json.dumps(data, indent=4)
-        # Create file in ./localization
-        with open(path, "w") as file:
-            file.write(create_file)
+def file_with_status(do, edit_status=None):
+    if do == "get":
+        path = "./localization/status.json" # Path of file
+        data = f_s_f() # Data for create file
+        # If not exists file, create status.json
+        if not os.path.exists(path):
+            create_file = json.dumps(data, indent=4)
+            # Create file in ./localization
+            with open(path, "w") as file:
+                file.write(create_file)
 
-        # Read file
-        with open(path, "r", encoding="utf-8") as file:
-            return json.load(file)
+            # Read file
+            with open(path, "r", encoding="utf-8") as file:
+                return json.load(file)
+        else:
+            # Read file
+            with open(path, "r", encoding="utf-8") as file:
+                return json.load(file)
+    elif do == "edit":
+        """Save the chosen language ('english' or 'russian') into status.json"""
+        path = "./localization/status.json"
+        data = {"Status": edit_status}
+        with open(path, "w", encoding="utf-8") as file:
+            file.write(json.dumps(data, indent=4, ensure_ascii=False))
+        return data
     else:
-        # Read file
-        with open(path, "r", encoding="utf-8") as file:
-            return json.load(file)
+        pass
 
 def choise_language(l_):
     if l_ == "english":
-        return out_en()
+        out = out_en()
+        return out
     elif l_ == "russian":
-        return out_ru()
+        out = out_ru()
+        return out
+    else:
+        pass
