@@ -1,12 +1,23 @@
 {
     "MainTitle": "Trusttunnel",
     "ButtonForStart": "Подключиться",
+    "ButtonForStop": "Отключиться",
     "ButtonForOpenFolder": "Открыть Папку",
     "SettingsTitle": "Настройки",
+    "LogsTitle": "Логи",
+    "ClearLogs": "Очистить логи",
     "PathToFolder": "Путь к папке с Trusttunnel",
     "ConfigName": "Название файла",
     "Confirm": "Подтвердить",
     "StartTunnel": "Прокладываем тунель...",
     "Connected": "Подключено!",
+    "Disconnected": "Туннель остановлен",
+    "AlreadyRunning": "Туннель уже запущен",
+    "SettingsSaved": "Настройки сохранены!",
+    "FillSettings": "Заполните путь и название конфига в Настройках",
+    "ExeNotFound": "Исполняемый файл не найден:",
+    "NeedAdmin": "Нужны права администратора. Перезапустите приложение от имени администратора.",
+    "ProcessExited": "Процесс завершился с кодом",
+    "FailedToStart": "Не удалось запустить:",
     "FailedToOpenFolder": "Ошибка открытия папки:"
 }

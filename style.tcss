@@ -120,3 +120,14 @@ Footer {
     background: #123a34;
     color: #b9c4c9;
 }
+
+.logs {
+    height: 15;
+    width: 100%;
+    background: #0b1f1c;
+    color: #cfe9e4;
+    border: tall #3aa89a;
+    margin: 1 0 0 0;
+    scrollbar-background: #0f2e29;
+    scrollbar-color: #3aa89a;
+}

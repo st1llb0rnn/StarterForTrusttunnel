@@ -1,12 +1,23 @@
 {
     "MainTitle": "Trusttunnel",
     "ButtonForStart": "Connect",
+    "ButtonForStop": "Disconnect",
     "ButtonForOpenFolder": "Open Folder",
     "SettingsTitle": "Settings",
+    "LogsTitle": "Logs",
+    "ClearLogs": "Clear logs",
     "PathToFolder": "Path to folder with Trusttunnel",
     "ConfigName": "Config name",
     "Confirm": "Confirm",
     "StartTunnel": "Start tunnel...",
     "Connected": "Connected!",
+    "Disconnected": "Tunnel stopped",
+    "AlreadyRunning": "Tunnel is already running",
+    "SettingsSaved": "Settings saved!",
+    "FillSettings": "Fill in the path and the config name in Settings",
+    "ExeNotFound": "Executable not found:",
+    "NeedAdmin": "Administrator rights required. Restart the app as administrator.",
+    "ProcessExited": "Process exited with code",
+    "FailedToStart": "Failed to start:",
     "FailedToOpenFolder": "Failed to open folder:"
 }
