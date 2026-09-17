@@ -3,6 +3,7 @@ import os
 import subprocess
 import sys
 from pathlib import Path
+import ctypes
 
 from get_localizations import out_en, out_ru, choise_language
 from get_localizations import file_with_status as fws
@@ -75,10 +76,20 @@ class StarterForTrusttunnel(App):
             self.open_tt_folder()
 
     def start_tunnel(self) -> None:
+        path_to_folder = self.query_one("#path_to_folder", Input).value
+        name_config = self.query_one("#config_name", Input).value
+        params = f" -c {name_config}"
+        # 0 = скрыто, 1 = обычное окно (можно 5 для показа окна)
+        ctypes.windll.shell32.ShellExecuteW(
+            None,           # parent window
+            "runas",        # операция: запуск от админа
+            f"{path_to_folder}\\trusttunnel_client.exe",       # путь к exe
+            params,         # аргументы командной строки
+            None,           # рабочая директория (None = текущая)
+            1               # как показать окно
+        )
         # сюда логику запуска трастаннеля, например:
         # subprocess.Popen(["./trusttunnel"], cwd=self.tunnel_dir)
-        self.notify(self.current_lang["StartTunnel"])
-        self.notify(self.current_lang["Connected"])
 
     def open_tt_folder(self) -> None:
         folder = Path(__file__).parent  # поменяй на нужную папку с trusttunnel
